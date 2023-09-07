@@ -1,0 +1,52 @@
+type Collection @entity {
+
+    " The address of the collection "
+    id: ID!
+    
+    " The name of the collection "
+    name: String
+	
+    " The symbol for the collection "
+    symbol: String
+
+    " Total Supply of Tokens "
+    totalSupply: String
+
+   " Total Transfers TXs between users Tokens "
+    totalTrades: BigInt!
+
+    firstBlock: BigInt!
+
+    latestMintedBlock: BigInt!
+
+}
+
+type NFT @entity {
+
+    " Collection Addrress - Token Id "
+    id: ID!  
+
+    " The collection address "
+    nftAddress: String!
+
+    " The id of the NFT"
+    tokenId: BigInt!
+
+	" The address the currently owns the token "
+	currentOwner: String 
+
+    " mint timestamp"
+    mintTimestamp: BigInt!
+
+    " lastTransfer timestamp"
+    lastTransferTimestamp: BigInt!
+
+	" Transfers involving this token "
+	totalTrades: BigInt!
+
+    mintedBlock: BigInt!
+
+    latestTrasnferBlock: BigInt!
+}
+ 
+ 

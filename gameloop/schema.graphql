@@ -1,0 +1,15 @@
+type StakedNFT @entity {
+  " Owner Addrress - Token Id - isOdin"
+  id: ID!
+  " The owner address "
+  ownerAddress: String! # address
+
+  " The id of the NFT"
+  tokenId: BigInt!
+
+  " is Odin 1, 0 = Thor"
+	odin: Boolean!
+
+  " staked timestamp"
+  stakedTimestamp: BigInt!
+}

@@ -1,0 +1,66 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ThorGamification
+    network: avalanche
+#    network: fuji
+    source:
+      address: "0x64ecd0E998DA4285387d330ffeDB45D9F8553A9d"
+#      address: "0x55cFD0C5388efE6c519b1aACc3bc4Bf0D222678a"
+      abi: ThorGamification
+      startBlock: 29425756
+#      startBlock: 21085481
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AdminChanged
+        - AttachPerk
+        - BeaconUpgraded
+        - CreateBifrostNode
+        - CreateCapsule
+        - CreateKey
+        - DriftStakedFull
+        - DriftUnstakedFull
+        - Initialized
+        - OwnershipTransferred
+        - Paused
+        - RequestFulfilled
+        - Unpaused
+        - Upgraded
+      abis:
+        - name: ThorGamification
+          file: ./abis/ThorGamification.json
+      eventHandlers:
+#        - event: AdminChanged(address,address)
+#          handler: handleAdminChanged
+#        - event: AttachPerk(address,uint256,uint256,bool)
+#          handler: handleAttachPerk
+#        - event: BeaconUpgraded(indexed address)
+#          handler: handleBeaconUpgraded
+#        - event: CreateBifrostNode(address,string,uint256)
+#          handler: handleCreateBifrostNode
+#        - event: CreateCapsule(address,uint256)
+ #         handler: handleCreateCapsule
+ #       - event: CreateKey(address,uint256,bool,bool)
+ #         handler: handleCreateKey
+        - event: DriftStakedFull(address,uint256,uint256,bool)
+          handler: handleDriftStakedFull
+        - event: DriftUnstakedFull(address,uint256,uint256,bool)
+          handler: handleDriftUnstakedFull
+ #       - event: Initialized(uint8)
+ #         handler: handleInitialized
+ #       - event: OwnershipTransferred(indexed address,indexed address)
+ #         handler: handleOwnershipTransferred
+ #       - event: Paused(address)
+ #         handler: handlePaused
+ #       - event: RequestFulfilled(uint256,uint256[])
+ #         handler: handleRequestFulfilled
+ #       - event: Unpaused(address)
+ #         handler: handleUnpaused
+ #       - event: Upgraded(indexed address)
+ #         handler: handleUpgraded
+      file: ./src/mapping.ts
